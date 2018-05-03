@@ -1,5 +1,7 @@
 create user o_rourkes identified by fdhafdl34r98234 password expire;
 grant create any table to jeyoor848hdfne;
+grant select any table to jeyoor848hdfne;
+grant insert any table to jeyoor848hdfne;
 alter user o_rourkes quota unlimited on USERS;
 
 create table o_rourkes.ingredients(
