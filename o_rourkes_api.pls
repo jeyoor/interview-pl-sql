@@ -23,22 +23,22 @@ end o_rourkes_api;
 /
 
 create or replace package body o_rourkes_api as
-   cursor sum_of_kcal(entree_pidm_target number) return number is
+   cursor sum_of_kcal(entr_pidm number) is
       select sum(kcal)
       from o_rourkes.ingredients
       inner join o_rourkes.entree_ingredients ei
       on ingredients.pidm = ei.ingredient_pidm
       inner join o_rourkes.entrees
       on ei.entree_pidm = entrees.pidm
-      where entrees.pidm = entree_pidm_target;
-   cursor avg_of_vitamin_score(entree_pidm_target number) return number is
+      where entrees.pidm = entr_pidm;
+   cursor avg_of_vitamin_score(entr_pidm number) is
       select avg(vitamin_score)
       from o_rourkes.ingredients
       inner join o_rourkes.entree_ingredients ei
       on ingredients.pidm = ei.ingredient_pidm
       inner join o_rourkes.entrees
       on ei.entree_pidm = entrees.pidm
-      where entrees.pidm = entree_pidm_target;
+      where entrees.pidm = entr_pidm;
    procedure order_ingredient(
       pidm number,
       name varchar,
